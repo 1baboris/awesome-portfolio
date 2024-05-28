@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="gap-2 pt-10 mt-16 bottom-0 flex flex-col items-center justify-center border-t-2 border-violet-600">
+    <footer className="gap-2 py-10 mt-16 bottom-0 flex flex-col items-center justify-center border-t-2 border-violet-600">
       <p className="text-sm md:text-md xl:text-lg text-gray-400">
         © Boris Ben Achour · 2024 💜
       </p>
