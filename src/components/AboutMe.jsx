@@ -4,13 +4,19 @@ export default function AboutMe(props) {
   const { isEnglish } = props;
 
   return (
-    <section className="flex flex-col gap-5 items-center mx-8" id="aboutMe">
+    <section
+      className="flex flex-col gap-5 items-center mx-8 pt-24"
+      id="aboutMe"
+    >
       <h1 className=" text-gray-400 text-center font-semibold text-4xl md:text-5xl xl:text-6xl">
         01{" "}
         <span className="text-violet-600 font-bold text-2xl md:text-3xl xl:text-4xl">
-          {isEnglish ? "About Me" : "Contactez-moi"}
+          {isEnglish ? "About Me" : "A propos de moi"}
         </span>
       </h1>
+      <h3 className="text-xl md:text-2xl xl:text-3xl dark:text-white">
+        {isEnglish ? "Who I am ?" : "Qui suis-je ?"}
+      </h3>
       <div className="flex flex-col justify-center items-center text-justify max-w-4xl">
         {isEnglish ? (
           <p className="text-md md:text-lg xl:text-xl dark:text-white">

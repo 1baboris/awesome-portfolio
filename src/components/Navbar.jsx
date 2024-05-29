@@ -2,18 +2,25 @@ import React, { useState, useEffect } from "react";
 
 export default function Navbar(props) {
   const { isEnglish, setIsEnglish } = props;
+  const [isDarkMode, setIsDarkMode] = useState("false");
+
+  const element = document.documentElement;
+
+  function toggleTheme() {
+    !isDarkMode
+      ? element.classList.remove("dark")
+      : element.classList.add("dark");
+    setIsDarkMode(!isDarkMode);
+  }
 
   const [showMenu, setShowMenu] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
-  const [showTheme, setShowTheme] = useState(false);
+
   function toggleMenu() {
     showMenu ? setShowMenu(false) : setShowMenu(true);
   }
   function toggleLanguage() {
     showLanguage ? setShowLanguage(false) : setShowLanguage(true);
-  }
-  function toggleTheme() {
-    showTheme ? setShowTheme(false) : setShowTheme(true);
   }
 
   return (
@@ -30,13 +37,13 @@ export default function Navbar(props) {
             href="#aboutMe"
             className="max-md:hidden dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80"
           >
-            About Me
+            {isEnglish ? "About Me" : "A propos de moi"}
           </a>
           <a
             href="#projects"
             className="max-md:hidden dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80"
           >
-            Project
+            {isEnglish ? "Project" : "Projets"}
           </a>
           <div className="flex">
             <div></div>
@@ -51,9 +58,11 @@ export default function Navbar(props) {
                 onClick={toggleTheme}
                 className="group dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80"
               >
-                {<i className="fa-solid fa-sun"></i>}
-                {/* <i className="fa-solid fa-moon"></i>
-            <i className="fa-solid fa-computer"></i> */}
+                {isDarkMode ? (
+                  <i className="fa-solid fa-sun"></i>
+                ) : (
+                  <i className="fa-solid fa-moon"></i>
+                )}
               </button>
             </div>
           </div>
@@ -67,7 +76,7 @@ export default function Navbar(props) {
       </nav>
       {showMenu ? (
         <div className="z-20 fixed w-full h-full bg" onClick={toggleMenu}>
-          <div className="flex flex-col  fixed top-20 left-5 border-2 border-violet-600 rounded-lg w-32 bg-slate-100 dark:bg-slate-950">
+          <div className="flex flex-col fixed top-20 left-5 border-2 border-violet-600 rounded-lg bg-slate-100 dark:bg-slate-950">
             <button
               onClick={() => {
                 window.location.href = "#aboutMe";
@@ -75,7 +84,7 @@ export default function Navbar(props) {
               }}
               className="dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80"
             >
-              About Me
+              {isEnglish ? "About Me" : "A propos de moi"}
             </button>
             <button
               onClick={() => {
@@ -84,7 +93,7 @@ export default function Navbar(props) {
               }}
               className=" dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80"
             >
-              Project
+              {isEnglish ? "Project" : "Projets"}
             </button>
           </div>
         </div>
@@ -109,26 +118,6 @@ export default function Navbar(props) {
               className=" dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80"
             >
               Fr
-            </button>
-          </div>
-        </div>
-      ) : (
-        " "
-      )}
-      {showTheme ? (
-        <div className="z-20 fixed w-full h-full bg" onClick={toggleTheme}>
-          <div className="flex flex-col  fixed top-20 left-5 border-2 border-violet-600 rounded-lg w-32 bg-slate-100 dark:bg-slate-950">
-            <button className="flex justify-center items-center gap-3 dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80">
-              <p>{isEnglish ? "Light" : "Clair"}</p>
-              <i className="fa-solid fa-sun"></i>
-            </button>
-            <button className="flex justify-center items-center gap-3 dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80">
-              <p>{isEnglish ? "Dark" : "Sombre"}</p>
-              <i className="fa-solid fa-moon"></i>
-            </button>
-            <button className="flex justify-center items-center gap-3 dark:text-white px-2 py-1 rounded-lg hover:bg-violet-100/80">
-              <p>Systeme</p>
-              <i className="fa-solid fa-computer"></i>
             </button>
           </div>
         </div>

@@ -4,7 +4,7 @@ export default function ContactForm(props) {
   const { isEnglish } = props;
   return (
     <section
-      className="flex flex-col gap-5 items-center mx-8 mt-20"
+      className="flex flex-col gap-5 items-center mx-8 pt-24"
       id="getInTouch"
     >
       <h1 className=" text-gray-400 text-center font-semibold text-4xl md:text-5xl xl:text-6xl">
@@ -14,7 +14,7 @@ export default function ContactForm(props) {
         </span>
       </h1>
       <h3 className="text-xl md:text-2xl xl:text-3xl dark:text-white">
-        {isEnglish ? "Send me a message" : "Envoyez-moi un message."}
+        {isEnglish ? "Send me a message" : "Envoyez-moi un message"}
       </h3>
       <form
         action=""
@@ -29,6 +29,7 @@ export default function ContactForm(props) {
             type="text"
             className="inline rounded-lg focus:outline focus:outline-2 focus:outline-violet-400 text-sm px-2 py-1 dark:bg-slate-900 dark:text-white"
             placeholder="John Doe"
+            required
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -40,6 +41,7 @@ export default function ContactForm(props) {
             type="email"
             className="inline rounded-lg focus:outline focus:outline-2 focus:outline-violet-400 text-sm px-2 py-1 dark:bg-slate-900 dark:text-white"
             placeholder="johndoe@mail.com"
+            required
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -55,6 +57,7 @@ export default function ContactForm(props) {
                 ? "Hello, I'm John Doe. I'm looking for a website developer."
                 : "Bonjour, je m'appelle John Doe. Je suis à la recherche d'un développeur de site web."
             }
+            required
           ></textarea>
         </div>
         <button

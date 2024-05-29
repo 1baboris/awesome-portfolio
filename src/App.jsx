@@ -9,7 +9,7 @@ import { useState } from "react";
 function App() {
   const [isEnglish, setIsEnglish] = useState(true);
   return (
-    <main className="dark">
+    <main>
       <Navbar isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
       <Hero isEnglish={isEnglish} />
       <AboutMe isEnglish={isEnglish} />
