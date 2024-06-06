@@ -8,7 +8,7 @@ export default function ProjectCard(props) {
         Maison Sifa
       </h3>
       <img
-        src="/src/assets/images/projects/ProjectImage.png"
+        src="/assets/images/projects/ProjectImage.png"
         alt="ProjectImg"
         className="rounded-xl"
       />
